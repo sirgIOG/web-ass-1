@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #004aad;
+      border-bottom: 2px solid #004aad;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #004aad;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    img.profile {
+      width: 160px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      section {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+
+    /* ---------- ANIMATION ---------- */
+    .fade {
+      opacity: 0;
+      transition: opacity 1.2s ease-in;
+    }
+    .fade.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <h1>My Personal Website</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#resume">Resume</a>
+      <a href="#biodata">Bio-data</a>
+    </nav>
+  </header>
+
+  <!-- ---------- HOME SECTION ---------- -->
+  <section id="home" class="fade">
+    <h2>Welcome</h2>
+    <img src="https://via.placeholder.com/160" alt="Profile" class="profile" />
+    <h3>Hi, I'm Chirag</h3>
+    <p>
+      I’m a Computer Science student passionate about Artificial Intelligence,
+      Machine Learning, and Web Development. This website showcases my resume
+      and bio-data for academic and professional purposes.
+    </p>
+  </section>
+
+  <!-- ---------- RESUME SECTION ---------- -->
+  <section id="resume" class="fade">
+    <h2>Resume</h2>
+
+    <h3>Education</h3>
+    <ul>
+      <li>B.Tech in Computer Science – RVITM</li>
+    </ul>
+
+    <h3>Skills</h3>
+    <ul>
+      <li>Programming Languages: Python, C++, Java</li>
+      <li>Web Technologies: HTML, CSS, React</li>
+      <li>Tools & Concepts: Git, Machine Learning, Data Analysis</li>
+    </ul>
+
+    <h3>Projects</h3>
+    <ul>
+      <li>Emergency Response Route Optimization (A* vs Dijkstra)</li>
+      <li>Brain Tumor Classification using ResNet in PyTorch</li>
+    </ul>
+
+    <h3>Certifications</h3>
+    <ul>
+      <li>Google Data Analytics Certificate</li>
+      <li>Machine Learning with Python – Coursera</li>
+    </ul>
+  </section>
+
+  <!-- ---------- BIO-DATA SECTION ---------- -->
+  <section id="biodata" class="fade">
+    <h2>Bio-data</h2>
+    <table>
+      <tr><td><strong>Name:</strong></td><td>Chirag</td></tr>
+      <tr><td><strong>Date of Birth:</strong></td><td>13 October 2005</td></tr>
+      <tr><td><strong>Gender:</strong></td><td>Male</td></tr>
+      <tr><td><strong>Address:</strong></td><td>Konanakunte cross, India</td></tr>
+      <tr><td><strong>Languages Known:</strong></td><td>English, Kannada, Hindi</td></tr>
+      <tr><td><strong>Hobbies:</strong></td><td>Reading, Coding, Traveling</td></tr>
+      <tr><td><strong>Strengths:</strong></td><td>Teamwork, Problem Solving, Discipline</td></tr>
+    </table>
+
+    <p style="margin-top:20px;">
+      <strong>Declaration:</strong> I hereby declare that all the information
+      given above is true to the best of my knowledge and belief.
+    </p>
+  </section>
+
+  <!-- ---------- SCRIPT ---------- -->
+  <script>
+    // Fade-in animation when section enters viewport
+    const sections = document.querySelectorAll(".fade");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
